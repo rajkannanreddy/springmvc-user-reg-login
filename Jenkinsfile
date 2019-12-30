@@ -1,22 +1,61 @@
 pipeline {
     agent any
     stages {
-        stage ('Build') {
-
+        stage('Checkout') {
             steps {
-                    sh 'mvn clean compile'
+                echo 'Checkout'
             }
         }
-        stage ('Test') {
-
+        stage('Build') {
             steps {
-                    sh 'mvn test'
+                echo 'Clean Build'
+                bat 'mvn clean compile'
             }
         }
-        stage ('Deploy') {
+        stage('Test') {
             steps {
-                    sh 'mvn install'
+                echo 'Testing'
+                bat 'mvn test'
             }
+        }
+        
+        stage('Sonar') {
+            steps {
+                echo 'Sonar Scanner'
+               	//def scannerHome = tool 'SonarQube Scanner 3.0'
+			    //withSonarQubeEnv('SonarQube Server') {
+			    	sh '/home/rajesh/Documents/Learnings/InstalledSoftware/jenkins/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner'
+			    //}
+            }
+        }
+        stage('Package') {
+            steps {
+                echo 'Packaging'
+                bat 'mvn package -DskipTests'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo '## TODO DEPLOYMENT ##'
+            }
+        }
+    }
+    
+    post {
+        always {
+            echo 'JENKINS PIPELINE'
+        }
+        success {
+            echo 'JENKINS PIPELINE SUCCESSFUL'
+        }
+        failure {
+            echo 'JENKINS PIPELINE FAILED'
+        }
+        unstable {
+            echo 'JENKINS PIPELINE WAS MARKED AS UNSTABLE'
+        }
+        changed {
+            echo 'JENKINS PIPELINE STATUS HAS CHANGED SINCE LAST EXECUTION'
         }
     }
 }
