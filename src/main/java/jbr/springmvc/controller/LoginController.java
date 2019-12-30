@@ -45,5 +45,23 @@ public class LoginController {
 
     return mav;
   }
+  
+  @RequestMapping(value = "/testSQLInjection", method = RequestMethod.POST)
+  public ModelAndView testSQLInjection(HttpServletRequest request, HttpServletResponse response,
+      @ModelAttribute("login") Login login) {
+    ModelAndView mav = null;
+    String userName = request.getParameter("userName");
+    User user = userService.testSqlQuery(userName);
+
+    if (null != user) {
+      mav = new ModelAndView("welcome");
+      mav.addObject("firstname", user.getFirstname());
+    } else {
+      mav = new ModelAndView("login");
+      mav.addObject("message", "Username or Password is wrong!!");
+    }
+
+    return mav;
+  }
 
 }

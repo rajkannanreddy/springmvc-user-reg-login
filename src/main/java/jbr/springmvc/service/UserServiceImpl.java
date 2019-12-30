@@ -18,5 +18,9 @@ public class UserServiceImpl implements UserService {
   public User validateUser(Login login) {
     return userDao.validateUser(login);
   }
+  
+  public User testSqlQuery(String user) {
+	    return userDao.testSqlQuery(user);
+	  }
 
 }
