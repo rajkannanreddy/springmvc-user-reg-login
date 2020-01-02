@@ -21,13 +21,12 @@ pipeline {
             }
         }
         stage('Building image') {
-            steps {
                 agent { 
                     dockerfile {
                         filename 'Dockerfile'
                     } 
                 }
-            }
+            
       }
     
         stage('Deploy') {
