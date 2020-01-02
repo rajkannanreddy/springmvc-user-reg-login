@@ -72,7 +72,6 @@ RUN set -eux; \
 	tar -xf tomcat.tar.gz --strip-components=1; \
 	rm bin/*.bat; \
 	rm tomcat.tar.gz*; \
-	rm -rf "$GNUPGHOME"; \
 	\
 # https://tomcat.apache.org/tomcat-9.0-doc/security-howto.html#Default_web_applications
 	mv webapps webapps.dist; \
