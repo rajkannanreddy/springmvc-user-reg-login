@@ -1,6 +1,6 @@
 FROM openjdk:13-jdk-oracle
 
-ENV CATALINA_HOME /usr/local/tomcat
+ENV CATALINA_HOME /app/mw/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
 RUN mkdir -p "$CATALINA_HOME"
 WORKDIR $CATALINA_HOME

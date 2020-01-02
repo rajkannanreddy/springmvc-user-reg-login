@@ -21,12 +21,13 @@ pipeline {
             }
         }
         stage('Building image') {
-      steps{
-        script {
-          tomcatDI = docker.build registry + ":$BUILD_NUMBER"
-        }
+            steps {
+                agent { 
+                    dockerfile true 
+                }
+            }
       }
-    }
+    
         stage('Deploy') {
             steps {
                 echo '## TODO DEPLOYMENT ##'
