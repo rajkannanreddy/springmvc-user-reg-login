@@ -26,6 +26,9 @@ pipeline {
                         filename 'Dockerfile'
                     } 
                 }
+                steps {
+                echo 'Building images'
+            }
             
       }
     
