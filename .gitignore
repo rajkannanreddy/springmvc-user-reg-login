@@ -1,0 +1,7 @@
+/target/
+/.classpath
+/.project
+/Dockerfile.orig
+/Dockerfile.ws
+/Jenkinsfile.orig
+/Jenkinsfile.ws
