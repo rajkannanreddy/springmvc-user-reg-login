@@ -1,6 +1,17 @@
 pipeline {
     agent any
+    
     stages {
+        stage('precheck'){
+            steps {
+                sh 'env > env.txt' 
+                for (String i : readFile('env.txt').split("\r?\n")) {
+                    println i
+                }
+            }
+
+        }           
+ 
         stage('Checkout') {
             steps {
                 echo 'Checkout'
