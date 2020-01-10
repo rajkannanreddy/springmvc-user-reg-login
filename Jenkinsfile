@@ -4,10 +4,8 @@ pipeline {
     stages {
         stage('precheck'){
             steps {
-                sh 'env > env.txt' 
-                for (String i : readFile('env.txt').split("\r?\n")) {
-                    println i
-                }
+                sh 'env > /tmp/env.txt' 
+                
             }
 
         }           
