@@ -9,13 +9,8 @@ RUN apk add bash
 RUN apk add openjdk8
 
 
-ENV CATALINA_HOME /opt/tomcat9
-ENV PATH $CATALINA_HOME/bin:$PATH
-WORKDIR $CATALINA_HOME
-COPY setenv.sh $CATALINA_HOME
-RUN mv webapps webapps.dist
-RUN mkdir webapps
-COPY /springmvc-user-reg-login/target/springmvc-user-reg-login.war webapps/
+
+COPY /springmvc-user-reg-login/target/springmvc-user-reg-login.war /opt/tomcat9/webapps/
 
 
 EXPOSE 8000
