@@ -33,6 +33,7 @@ pipeline {
                 agent { 
                     dockerfile {
                         filename 'Dockerfile'
+                        additionalBuildArgs "--build-arg WAR_LOCATION=$WORKSPACE/target" 
                     } 
                 }
                 steps {
