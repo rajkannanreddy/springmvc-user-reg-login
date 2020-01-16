@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    app =''
     
     stages {
         stage('precheck'){
