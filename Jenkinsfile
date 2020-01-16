@@ -18,6 +18,17 @@ pipeline {
                 echo 'Checkout'
             }
         }
+        
+        stage('Sonar') {
+            steps {
+                echo 'Sonar Scanner'
+               	def scannerHome = tool 'SonarQube Scanner 3.0'
+			    withSonarQubeEnv('SonarQube Server') {
+			    	sh '/home/rajesh/Documents/Learnings/InstalledSoftware/jenkins/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner'
+			    }
+            }
+        }
+        
         stage('Build') {
             steps {
                 echo 'Clean Build'
