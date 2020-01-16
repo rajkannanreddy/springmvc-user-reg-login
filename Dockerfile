@@ -15,7 +15,7 @@ WORKDIR $CATALINA_HOME
 COPY setenv.sh $CATALINA_HOME
 RUN mv webapps webapps.dist
 RUN mkdir webapps
-COPY . /opt/tomcat9/webapps/
+COPY target/springmvc-user-reg-login.war /opt/tomcat9/webapps/
 
 
 EXPOSE 8000
