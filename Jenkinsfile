@@ -1,6 +1,8 @@
 pipeline {
     agent any
-    app =''
+    environment {       
+        dockerImage = ''
+    }
     
     stages {
         stage('precheck'){
@@ -34,7 +36,7 @@ pipeline {
                 steps {
                 echo 'Building images'
                 
-                app = docker.build("getintodevops/hellonode")
+                dockerImage = docker.build("getintodevops/hellonode")
             }
             
       }
