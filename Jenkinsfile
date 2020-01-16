@@ -32,6 +32,7 @@ pipeline {
         stage('Building image') {
                 steps {
                 echo 'Building images'
+                
                 app = docker.build("getintodevops/hellonode")
             }
             
