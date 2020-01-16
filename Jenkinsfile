@@ -35,8 +35,9 @@ pipeline {
         stage('Building image') {
                 steps {
                 echo 'Building images'
-                
+                script {
                 def customImage = docker.build("getintodevops/hellonode")
+                }
             }
             
       }
