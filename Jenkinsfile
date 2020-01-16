@@ -30,14 +30,9 @@ pipeline {
             }
         }
         stage('Building image') {
-                agent { 
-                    dockerfile {
-                        filename 'Dockerfile'
-                        additionalBuildArgs "--build-arg WAR_LOCATION=$WORKSPACE/target" 
-                    } 
-                }
                 steps {
                 echo 'Building images'
+                app = docker.build("getintodevops/hellonode")
             }
             
       }
