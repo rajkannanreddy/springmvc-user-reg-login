@@ -12,8 +12,8 @@ ENV CATALINA_HOME /opt/tomcat9
 ENV PATH $CATALINA_HOME/bin:$PATH
 WORKDIR $CATALINA_HOME/bin
 COPY setenv.sh $CATALINA_HOME
-RUN mv webapps webapps.dist
-RUN mkdir webapps
+RUN mv $CATALINA_HOME/webapps $CATALINA_HOME/webapps.dist
+RUN mkdir $CATALINA_HOME/webapps
 COPY target/springmvc-user-reg-login.war /opt/tomcat9/webapps/
 
 
