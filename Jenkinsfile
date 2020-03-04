@@ -19,11 +19,18 @@ pipeline {
             }
         }
         
-        stage('Sonar') {
-            steps {
-                echo 'Sonar Scanner'
-               	sh '/home/rajesh/Documents/Learnings/InstalledSoftware/jenkins/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner'
-			}
+        //stage('Sonar') {
+          //  steps {
+          //      echo 'Sonar Scanner'
+          //     	sh '/home/rajesh/Documents/Learnings/InstalledSoftware/jenkins/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner'
+		  //	}
+        // }
+        
+        stage('SonarQube analysis') {
+            def scannerHome = tool 'SQScanner';
+            withSonarQubeEnv('My SonarQube Server') {
+                sh "${scannerHome}/bin/sonar-scanner"
+            }
         }
         
         stage('Build') {
