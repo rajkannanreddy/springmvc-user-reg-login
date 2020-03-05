@@ -23,5 +23,6 @@
     <property name="username" value="sampleuser" />
     <property name="password" value="mariadb" />
   </bean>
+  
 
 </beans>
