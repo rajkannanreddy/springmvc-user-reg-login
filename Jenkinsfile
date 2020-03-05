@@ -55,7 +55,7 @@ pipeline {
                 steps {
                 echo 'Building images'
                 script {
-                def customImage = docker.build("getintodevops/hellonode")
+                def customImage = docker.build("daas/springdemo")
                 }
             }
             
@@ -63,7 +63,10 @@ pipeline {
     
         stage('Deploy') {
             steps {
-                echo '## TODO DEPLOYMENT ##'
+                echo 'Starting Docker image'
+                script {
+                sh 'docker run -d -p8080:8080 daas/springdemo'
+                }
             }
         }
     }
