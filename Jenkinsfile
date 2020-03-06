@@ -53,6 +53,15 @@ pipeline {
                 }
             }            
         }
+        
+        stage('Deploy Docker Image') {
+            steps {
+                echo 'Starting Docker image'
+                script {
+                sh 'docker run -d -p8080:8080 daas/springdemo'
+                }
+            }
+        }
     }
     
     post {
