@@ -56,7 +56,7 @@ pipeline {
         
         stage('Run Docker Image') {
             steps {
-                echo 'Startin Docker image'
+                echo 'Starting Docker image'
                 script {
                 sh 'docker run -d -p8080:8080 daas/springdemo'
                 }
