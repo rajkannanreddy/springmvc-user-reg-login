@@ -7,8 +7,7 @@ pipeline {
     stages {
         stage('precheck'){
             steps {
-                sh 'env > /tmp/env.txt' 
-                
+                sh 'env > /tmp/env.txt'                 
             }
 
         }           
@@ -19,25 +18,19 @@ pipeline {
             }
         }
         
-        //stage('Sonar') {
-          //  steps {
-          //      echo 'Sonar Scanner'
-          //     	sh '/home/rajesh/Documents/Learnings/InstalledSoftware/jenkins/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner'
-		  //	}
-        // }
-        
+       
         stage('SonarQube analysis') {
             steps {
-            script {
-            def scannerHome = tool 'SQScanner';
-            withSonarQubeEnv('SQServer') {
-                sh "${scannerHome}/bin/sonar-scanner"
+                script {
+                    def scannerHome = tool 'SQScanner';
+                    withSonarQubeEnv('SQServer') {
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                }
             }
         }
-        }
-        }
         
-        stage('Build') {
+        stage('Build Application') {
             steps {
                 echo 'Clean Build'
                 echo "BUILD NUMBER: ${BUILD_NUMBER}"
@@ -45,29 +38,20 @@ pipeline {
             }
         }
         
-        stage('Package') {
+        stage('Package Application') {
             steps {
                 echo 'Packaging'
                 sh 'mvn package -DskipTests'
             }
         }
-        stage('Building image') {
-                steps {
+        
+        stage('Build Docker image') {
+            steps {
                 echo 'Building images'
                 script {
-                def customImage = docker.build("daas/springdemo")
+                    def customImage = docker.build("daas/springdemo")
                 }
-            }
-            
-      }
-    
-        stage('Deploy') {
-            steps {
-                echo 'Starting Docker image'
-                script {
-                sh 'docker run -d -p8080:8080 daas/springdemo'
-                }
-            }
+            }            
         }
     }
     
@@ -77,6 +61,8 @@ pipeline {
         }
         success {
             echo 'JENKINS PIPELINE SUCCESSFUL'
+            echo 'Run the below command to start docker:'
+            echo '    docker run -d -p8080:8080 daas/springdemo'
         }
         failure {
             echo 'JENKINS PIPELINE FAILED'
