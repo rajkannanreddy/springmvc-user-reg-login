@@ -61,7 +61,7 @@ pipeline {
         }
         success {
             echo 'JENKINS PIPELINE SUCCESSFUL'
-            echo 'Run the following command to start docker: docker run -d -p8080:8080 daas/springdemo'
+            echo 'Start docker: docker run -d -p8080:8080 daas/springdemo'
         }
         failure {
             echo 'JENKINS PIPELINE FAILED'
