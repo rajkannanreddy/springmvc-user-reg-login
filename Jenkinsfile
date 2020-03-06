@@ -54,7 +54,7 @@ pipeline {
             }            
         }
         
-        stage('Deploy Docker Image') {
+        stage('Run Docker Image') {
             steps {
                 echo 'Starting Docker image'
                 script {
