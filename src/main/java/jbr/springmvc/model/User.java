@@ -4,11 +4,7 @@ public class User {
 
   private String username;
   private String password;
-  private String firstname;
-  private String lastname;
   private String email;
-  private String address;
-  private int phone;
 
   public String getUsername() {
     return username;
@@ -27,25 +23,7 @@ public class User {
     this.password = password;
   }
 
-  public String getFirstname() {
-    return firstname;
-  }
-
-  public void setFirstname(String firstname) {
-    System.out.println("firstname: " + firstname);
-    this.firstname = firstname;
-  }
-
-  public String getLastname() {
-    return lastname;
-  }
-
-  public void setLastname(String lastname) {
-    System.out.println("lastname: " + lastname);
-    this.lastname = lastname;
-  }
-
-  public String getEmail() {
+ public String getEmail() {
     return email;
   }
 
@@ -53,19 +31,4 @@ public class User {
     this.email = email;
   }
 
-  public String getAddress() {
-    return address;
-  }
-
-  public void setAddress(String address) {
-    this.address = address;
-  }
-
-  public int getPhone() {
-    return phone;
-  }
-
-  public void setPhone(int phone) {
-    this.phone = phone;
-  }
-}
+ }

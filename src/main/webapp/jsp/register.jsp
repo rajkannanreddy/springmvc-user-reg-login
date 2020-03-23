@@ -1,59 +1,148 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<html>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Registration</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700"
+	rel="stylesheet">
+<title>Sign Up</title>
+<spring:url value="/resources/css" var="css" />
+<spring:url value="/resources/js" var="js" />
+
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="${css}/bootstrap.min.css">
+<link rel="stylesheet" href="${css}/xenoai-signup.css">
+<link rel="stylesheet" href="${css}/home.css">
+<script src="${js}/jquery.min.js" type="text/javascript"></script>
+<script src="${js}/bootstrap.bundle.min.js" type="text/javascript"></script>
+
 </head>
 <body>
-	<form:form id="regForm" modelAttribute="user" action="registerProcess"
-		method="post">
+	<header id="header">
+		<div class="container">
 
-		<table align="center">
-			<tr>
-				<td><form:label path="username">Username</form:label></td>
-				<td><form:input path="username" name="username" id="username" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="password">Password</form:label></td>
-				<td><form:password path="password" name="password"
-						id="password" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="firstname">FirstName</form:label></td>
-				<td><form:input path="firstname" name="firstname"
-						id="firstname" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="lastname">LastName</form:label></td>
-				<td><form:input path="lastname" name="lastname" id="lastname" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="email">Email</form:label></td>
-				<td><form:input path="email" name="email" id="email" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="address">Address</form:label></td>
-				<td><form:input path="address" name="address" id="address" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="phone">Phone</form:label></td>
-				<td><form:input path="phone" name="phone" id="phone" /></td>
-			</tr>
+			<div class="logo float-left">
 
-			<tr>
-				<td></td>
-				<td><form:button id="register" name="register">Register</form:button></td>
-			</tr>
-			<tr></tr>
-			<tr>
-				<td></td>
-				<td><a href="home.jsp">Home</a></td>
-			</tr>
-		</table>
-	</form:form>
+				<!-- Uncomment below if you prefer to use an image logo -->
+				<a href="home.jsp"><img src="resources/images/xenoai.jpg"
+					alt="" class="img-fluid"></a>
+			</div>
+		</div>
+	</header>
+	<!-- End Header -->
+
+	<main id="main">
+
+		<!-- ======= About Us Section ======= -->
+		<section id="about" class="about">
+			<div class="container">
+				<div class="signup-form">
+					<form id="regForm" modelAttribute="user" action="registerProcess"
+						method="post">
+						<h2>Sign Up</h2>
+						<p>Please fill in this form to create an account!</p>
+						<hr>
+						<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-user"></i></span>
+								</div>
+								<input type="text" class="form-control" name="username"
+									placeholder="Username" required="required">
+							</div>
+						</div>
+						<div class="form-group">
+
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fa fa-paper-plane"></i></span>
+								</div>
+								<input type="email" class="form-control" name="email"
+									placeholder="Email Address" required="required">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-lock"></i></span>
+								</div>
+								<input type="text" class="form-control" name="password"
+									placeholder="Password" required="required">
+							</div>
+						</div>
+						<div class="form-group">
+
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-lock"></i>
+										<i class="fa fa-check"></i><i></i></span>
+								</div>
+								<input type="text" class="form-control" name="confirm_password"
+									placeholder="Confirm Password" required="required">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="checkbox-inline"><input type="checkbox"
+								required="required"> I accept the <a href="#">Terms
+									of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary btn-lg">Sign
+								Up</button>
+						</div>
+					</form>
+					<div class="text-center">
+						Already have an account? <a href="login">Login here</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End About Us Section -->
+	</main>
+
+<!-- ======= Footer ======= -->
+	<footer id="footer">
+		<div class="container">
+			<ul class="nav">
+				<li class="nav-item">
+					<div class="copyright" style="padding-right: 30px" row="">
+						© Copyright <strong><span>Xenoai</span></strong>. All Rights
+						Reserved
+					</div>
+				</li>
+				<li class="nav-item">
+					<div class="copyright" style="padding-right: 5px;" row="">
+						<a style="color: #fff;" href="#">Contact</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<div class="copyright" style="padding-right: 5px;" row="">|</div>
+				</li>
+
+				<li class="nav-item">
+					<div class="copyright" style="padding-right: 5px;" row="">
+						<a style="color: #fff;" href="#">Privacy
+							policy</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<div class="copyright" style="padding-right: 5px;" row="">|</div>
+				</li>
+				<li class="nav-item">
+					<div class="copyright" row="">
+						<a style="color: #fff;" href="#">Terms of
+							service</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</footer>
+	<!-- End Footer -->
 
 </body>
 </html>

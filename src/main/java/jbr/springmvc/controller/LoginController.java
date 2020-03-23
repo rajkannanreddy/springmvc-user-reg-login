@@ -37,10 +37,10 @@ public class LoginController {
 
     if (null != user) {
       mav = new ModelAndView("welcome");
-      mav.addObject("firstname", user.getFirstname());
+      mav.addObject("username", user.getUsername());
     } else {
       mav = new ModelAndView("login");
-      mav.addObject("message", "Username or Password is wrong!!");
+      mav.addObject("message", "Invalid Username or Password.");
     }
 
     return mav;
@@ -55,7 +55,7 @@ public class LoginController {
 
     if (null != user) {
       mav = new ModelAndView("welcome");
-      mav.addObject("firstname", user.getFirstname());
+      mav.addObject("username", user.getUsername());
     } else {
       mav = new ModelAndView("login");
       mav.addObject("message", "Username or Password is wrong!!");
