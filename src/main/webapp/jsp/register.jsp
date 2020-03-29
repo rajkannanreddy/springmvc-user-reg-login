@@ -40,7 +40,7 @@
 		<!-- ======= About Us Section ======= -->
 		<section id="about" class="about">
 			<div class="container">
-				<div class="signup-form">
+				<div class="signup-form" style="min-height:73vh">
 					<form id="regForm" modelAttribute="user" action="registerProcess"
 						method="post">
 						<h2>Sign Up</h2>

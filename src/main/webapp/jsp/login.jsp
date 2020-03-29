@@ -45,7 +45,7 @@
 		<section id="about" class="about">
 			<div class="container">
 
-				<div class="login-form">
+				<div class="login-form" style="min-height:73vh">
 					<form id="loginForm" modelAttribute="login" action="loginProcess"
 						method="post">
 						<div class="avatar">

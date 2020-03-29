@@ -64,7 +64,7 @@
 		<!-- ======= About Us Section ======= -->
 		<section id="about" class="about">
 			<div class="container">
-				<div class="row no-gutters">Welcome ${username}</div>
+				<div class="row no-gutters" style="min-height:73vh">Welcome ${username}</div>
 			</div>
 		</section>
 		<!-- End About Us Section -->
